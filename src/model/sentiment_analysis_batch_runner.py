@@ -107,10 +107,9 @@ def analyze_review(
 ):
     logger.info(
         f"Starting analysis for Review ID {review_data.review_id} ({review_data.review_index + 1}/{total_reviews}): "
-        f"Label = {review_data.actual_label} (0=Positive; 1=Negative)"
+        f"Label = {review_data.actual_label} (0=Positive; 1=Negative)\n"
+        f"Review Text: {review_data.review_text}"
     )
-
-    logger.info(f"Review Text: {review_data.review_text}")
 
     total_experiments = len(experiments)
     for exp_index, experiment in enumerate(experiments):
@@ -119,7 +118,18 @@ def analyze_review(
             f"Temperature: {experiment.temperature}, Model: {experiment.slm.model_name.name}, "
             f"Device: {experiment.slm.device_type.name}"
         )
-        process_sentiment_analysis(review_data, experiment, writer, file, total_reviews)
+        process_sentiment_analysis(
+            review_data=review_data,
+            experiment=experiment,
+            writer=writer,
+            file=file,
+            experiment_progress=f"{exp_index + 1}/{total_experiments}",
+        )
+
+    logger.info(
+        f"Completed all experiments for Review ID {review_data.review_id} "
+        f"({review_data.review_index + 1}/{total_reviews})."
+    )
 
 
 def process_sentiment_analysis(
@@ -127,7 +137,7 @@ def process_sentiment_analysis(
     experiment: Experiment,
     writer: csv.writer,
     file: TextIO,
-    total_reviews: int,
+    experiment_progress: str,
 ):
     sentiment_parser = create_sentiment_parser(
         prompt_file=experiment.prompt_file,
@@ -142,7 +152,7 @@ def process_sentiment_analysis(
     execution_time = (time.time() - start_time) / 60
 
     logger.info(
-        f"Completed analysis for Review ID {review_data.review_id} ({review_data.review_index + 1}/{total_reviews}): "
+        f"Completed analysis for Review ID {review_data.review_id}. Experiment ({experiment_progress}): "
         f"Prompt {experiment.prompt_file.stem}, Temperature {experiment.temperature}, "
         f"Execution Time: {execution_time:.2f} minutes, Label: {review_data.actual_label}, "
         f"Execution Sentiment: {sentiment_data.execution_sentiment}, "
