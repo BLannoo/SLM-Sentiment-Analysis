@@ -1,0 +1,19 @@
+# Version pinning is done by pip-compile in requirements.txt
+# Only pin versions if there are specific issues with versions
+# That you want to communicate to the next developer
+# Also add a comment explain what the issue is.
+
+# Dev dependencies, to few to pull into separate requirements file
+pip-tools
+
+# Prod dependencies
+accelerate
+datasets
+langchain
+plac
+torch
+transformers
+
+# Pinned transient dependencies
+# phi-3-mini-4k-instruct model gives a warning to use numpy<2
+numpy<2
