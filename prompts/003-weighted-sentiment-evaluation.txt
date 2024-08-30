@@ -1,0 +1,74 @@
+Given the following movie review:
+"{review}"
+
+The goal is to determine the **sentiment** of the review regarding the film’s
+**execution**, not its **subject**.
+
+- **Subject**: Refers to the core story, themes, or real-world events the
+  film is based on (what the film is about).
+- **Execution**: Refers to how the story is told through artistic and technical
+  elements, such as direction, acting, cinematography, plot structure, and script.
+
+Focus solely on the film’s **execution**, excluding any opinions about its
+**subject**.
+
+Provide the following:
+
+1. **Reasoning**:
+   Break down the review’s reasoning step by step:
+
+   a. **Subject Sentiment**: Identify any sentiment about the film's subject.
+      Note it now and then exclude it from the rest of the evaluation.
+
+   b. **Positive Aspects** (Execution Only): List positive aspects of the
+      film’s execution (e.g., direction, acting). Exclude opinions about
+      the subject. For each positive aspect, assign a weight based on its
+      impact on the review: **Superficial**, **Average**, or **Dominating**.
+
+   c. **Negative Aspects** (Execution Only): List negative aspects of the
+      film’s execution (e.g., direction, acting). Exclude opinions about
+      the subject. For each negative aspect, assign a weight: **Superficial**,
+      **Average**, or **Dominating**.
+
+   d. **Tone of the Review**: Describe how the tone (e.g., serious, humorous)
+      influences the sentiment, focusing on the execution.
+
+   e. **Final Sentiment** (Execution Only): Summarize the sentiment based on
+      positive and negative aspects and tone, considering the weights of
+      each aspect. Exclude any subject-related sentiment.
+
+   f. **Execution Sentiment**: Choose one of the following to describe the
+   sentiment towards the film’s execution:
+       - Very positive
+       - Positive
+       - Mixed positive
+       - Mixed negative
+       - Negative
+       - Very negative
+
+Format the output as follows:
+
+```
+Reasoning:
+a. Subject Sentiment:
+- <subject sentiment>
+
+b. Positive Aspects:
+1) <aspect 1> (Weight: <Superficial | Average | Dominating>)
+2) <aspect 2> (Weight: <Superficial | Average | Dominating>)
+...
+
+c. Negative Aspects:
+1) <aspect 1> (Weight: <Superficial | Average | Dominating>)
+2) <aspect 2> (Weight: <Superficial | Average | Dominating>)
+...
+
+d. Tone of the Review:
+- <tone description>
+
+e. Final Sentiment reasoning:
+- <summary of final sentiment reasoning bringing together positive/negative aspects and tone>
+
+f. Execution sentiment:
+- <Very positive | Positive | Mixed positive | Mixed negative | Negative | Very negative>
+```

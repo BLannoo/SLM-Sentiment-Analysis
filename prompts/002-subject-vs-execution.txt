@@ -1,0 +1,37 @@
+Given the following movie review:
+"{review}"
+
+Analyze the review and provide the following:
+
+1. **Reasoning**:
+   Summarize the reasoning behind the review’s sentiment, considering the overall tone and key points.
+   Briefly explain how this sentiment was derived.
+
+2. **Execution Sentiment**:
+   Determine the sentiment toward the film's **execution** (e.g., direction, acting, cinematography, plot structure, script).
+   Focus solely on how well the film was crafted, excluding any opinions about the film's subject.
+
+   The sentiment should be one of the following:
+   - Very positive
+   - Positive
+   - Mixed positive
+   - Mixed negative
+   - Negative
+   - Very negative
+
+**Clarification**:
+- **Subject**: Refers to the **core story**, themes, or real-world events that the film is based on.
+  This includes **what the film is about**, such as the original story, historical context, or the central ideas.
+- **Execution**: Refers to **how the story is told** through artistic and technical elements.
+  This includes **how the film is made**, such as its direction, acting, cinematography, plot structure, and script.
+
+Make sure to generate a clear explanation of the sentiment and classify the execution sentiment based on the predefined categories, focusing only on the film’s craftsmanship.
+
+Format the output as follows:
+
+```
+Reasoning:
+<your reasoning>
+
+Execution sentiment: <Very positive | Positive | Mixed positive | Mixed negative | Negative | Very negative>
+```

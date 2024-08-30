@@ -27,7 +27,5 @@ pip install -r requirements.txt
 
 ## Refreshing requirements.txt after adding dependencies
 ```shell
-# To ensure consistency across environments,
-# generate the requirements file constrained by the packages available in Google Colab.
-pip-compile requirements.in -c requirements-collab-freeze.txt
+pip-compile requirements.in
 ```

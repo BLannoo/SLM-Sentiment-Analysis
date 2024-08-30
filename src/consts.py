@@ -27,3 +27,6 @@ class DeviceType(str, Enum):
             if colab_gpu_value is not None and colab_gpu_value != "":
                 return DeviceType.GPU
         return DeviceType.CPU
+
+
+SEED = 42
