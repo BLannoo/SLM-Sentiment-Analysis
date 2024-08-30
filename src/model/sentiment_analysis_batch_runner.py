@@ -153,9 +153,9 @@ def process_sentiment_analysis(
 
     logger.info(
         f"Completed analysis for Review ID {review_data.review_id}. Experiment ({experiment_progress}): "
-        f"Prompt {experiment.prompt_file.stem}, Temperature {experiment.temperature}, "
+        f"Prompt {experiment.prompt_file.stem}, Temperature {experiment.temperature}\n"
         f"Execution Time: {execution_time:.2f} minutes, Label: {review_data.actual_label}, "
-        f"Execution Sentiment: {sentiment_data.execution_sentiment}, "
+        f"Execution Sentiment: {sentiment_data.execution_sentiment}\n"
         f"Reasoning: {sentiment_data.escaped_reasoning()}"
     )
 
