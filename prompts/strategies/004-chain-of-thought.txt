@@ -1,0 +1,21 @@
+Analyze the following movie review step-by-step to determine its sentiment. Follow these steps carefully:
+
+**Review:**
+{review}
+
+1. **Identify Positive Elements:** List any words, phrases, or sentences in the review that indicate a positive sentiment. Describe why they contribute positively to the review’s overall tone.
+   - Positive elements: [List positive elements and explanations]
+
+2. **Identify Negative Elements:** List any words, phrases, or sentences that indicate a negative sentiment. Describe why they contribute negatively to the review’s overall tone.
+   - Negative elements: [List negative elements and explanations]
+
+3. **Evaluate the Overall Tone:** Consider the balance of positive and negative elements. Is there a predominance of one sentiment, or are they balanced? Reflect on the overall tone of the review — does it lean more towards praise, criticism, or neutrality?
+   - Overall tone: [Describe the overall tone based on the balance of elements]
+
+4. **Consider the Author's Intent and Emotion:** Reflect on the author’s purpose in writing the review and any emotions they are expressing. Is the author enthusiastic, disappointed, conflicted, or neutral?
+   - Author’s intent and emotion: [Describe the author's intent and emotion]
+
+5. **Final Sentiment Decision:** Based on the analysis above, decide if the sentiment is 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'. Justify your decision.
+   - Justification: [Provide a justification for the final sentiment classification]
+
+Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']

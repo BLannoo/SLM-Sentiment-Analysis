@@ -1,0 +1,14 @@
+Here are some examples of movie reviews and their sentiments:
+
+- "I loved this movie, it was fantastic! Every scene was visually stunning, and the plot kept me engaged from start to finish." -> Very positive
+- "The film had its moments, but overall, it felt like it was missing something essential. While the acting was solid, the story lacked depth and coherence." -> Mixed negative
+- "The plot was predictable and boring, with little to offer in terms of originality. I found myself losing interest halfway through." -> Negative
+- "While I appreciated the director's unique approach, some scenes were overly dramatic and drawn out. Still, there were enough compelling moments to keep me somewhat entertained." -> Mixed positive
+- "The cinematography was incredible, and the performances were powerful, but the pacing dragged, and some subplots felt unnecessary." -> Positive
+- "I did not enjoy this film. The characters were one-dimensional, and the dialogue was painfully cliché." -> Very negative
+
+Now, classify the following movie review:
+
+{review}
+
+Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']

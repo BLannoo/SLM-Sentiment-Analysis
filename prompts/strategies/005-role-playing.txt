@@ -1,0 +1,8 @@
+Imagine you are a renowned film critic for a prestigious film magazine, known for your detailed and insightful reviews. You have been asked to evaluate the following movie review to determine its sentiment. As a critic, you typically focus on several key aspects: narrative structure, character development, cinematography, direction, pacing, dialogue, and audience impact. Your readers expect a nuanced analysis, balancing objective observations with subjective impressions.
+
+As you read the review, consider these aspects carefully and decide which of the following sentiments it expresses: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'. Pay particular attention to any specific praises or criticisms, the overall tone, and the depth of emotion conveyed by the reviewer.
+
+**Review:**
+{review}
+
+Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']

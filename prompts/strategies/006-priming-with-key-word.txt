@@ -1,0 +1,21 @@
+To classify the sentiment of the following movie review, use the list of keywords below as a guide. Focus on how frequently and prominently these keywords, or similar expressions, appear in the text. Also, consider the overall context in which they are used.
+
+**Sentiment Analysis Keywords:**
+- **Very positive:** exceptional, outstanding, phenomenal, superb
+- **Positive:** excellent, great, love, fantastic, amazing, wonderful
+- **Mixed positive:** good, interesting, enjoyable, has potential
+- **Mixed negative:** mediocre, uneven, has flaws but some merit
+- **Negative:** boring, bad, poor, disappointing, lacks depth
+- **Very negative:** awful, terrible, unbearable, dreadful, appalling
+
+1. **Identify Keywords:** Highlight any words or phrases in the review that match or closely relate to the keywords provided above.
+   - Keywords found: [List of keywords and related words]
+
+2. **Assess Keyword Frequency and Prominence:** Determine how frequently these keywords appear and how prominently they are used (e.g., are they central to the review's main points or mentioned in passing?).
+   - Keyword analysis: [Frequency and prominence analysis]
+
+3. **Evaluate Overall Context:** Consider how the keywords fit within the overall context and tone of the review. Are they consistent throughout, or are there contrasting elements?
+   - Contextual analysis: [Context and tone analysis]
+
+4. **Classify the Sentiment:** Based on the keyword analysis and the overall context, classify the review's sentiment as one of the following: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
+   - Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']

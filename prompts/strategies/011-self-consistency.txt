@@ -1,0 +1,33 @@
+Classify the sentiment of the following movie review three times, using a different line of reasoning for each attempt. After each attempt, reflect on the reasoning used and consider how it might affect the final decision. Then, decide on the most consistent or frequent sentiment among your answers.
+
+**Review:**
+{review}
+
+1. **First Attempt:**
+   - Focus on the **explicit language** used in the review.
+   - Identify key words and phrases that directly express positive or negative sentiments.
+   - Consider how frequently these words are used and their strength or intensity.
+   - **Reasoning:** [Explanation based on choice and frequency of words]
+   - **Initial sentiment:** [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']
+   - **Reflection:** Consider how confident you are in this initial evaluation. Were there any uncertainties or potential biases based on word choice alone?
+
+2. **Second Attempt:**
+   - Focus on the **overall tone and mood** of the review.
+   - Assess the broader context, underlying emotions, and any shifts in tone throughout the text.
+   - **Reasoning:** [Explanation based on tone, mood, and emotional shifts]
+   - **Sentiment:** [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']
+   - **Reflection:** Reflect on how the tone and mood affect your understanding of the sentiment. Did the context provide clarity, or did it create ambiguity?
+
+3. **Third Attempt:**
+   - Focus on the **implied intent and purpose** of the reviewer.
+   - Analyze the themes, underlying messages, and what the reviewer is trying to communicate.
+   - **Reasoning:** [Explanation based on intent, themes, and underlying messages]
+   - **Sentiment:** [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']
+   - **Reflection:** Reflect on the implied intent and themes. Did this perspective align with your previous evaluations, or did it reveal new insights?
+
+4. **Final Decision:**
+   - Review all three attempts and reflect on the reasoning and reflections for each.
+   - Decide on the most consistent or frequent sentiment based on the reflections. Provide the final sentiment classification.
+   - **Final Sentiment:** [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']
+
+Execution sentiment: [Repeat final sentiment output]

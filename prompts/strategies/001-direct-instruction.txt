@@ -1,0 +1,8 @@
+You are tasked with classifying the sentiment of a movie review. Carefully analyze the content and determine the sentiment from the following categories: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
+
+Ensure that you choose the most appropriate sentiment based on the overall tone, word choice, and context provided in the review. Provide your answer in the format specified below.
+
+**Review:**
+{review}
+
+Execution sentiment: [Select and output one of: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

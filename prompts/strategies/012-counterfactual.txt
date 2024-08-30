@@ -1,0 +1,28 @@
+Analyze the following movie review and make an initial quick sentiment evaluation. Then, imagine what the review would need to say to have the opposite sentiment. Finally, reflect on how easy or difficult it was to create the counterfactual, and based on this reflection, provide a final sentiment classification.
+
+**Review:**
+{review}
+
+1. **Initial Evaluation:**
+   - Quickly read the review and provide an initial sentiment classification. Choose one of the following: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
+   - **Initial sentiment:** [Initial output]
+   - **Reasoning for initial evaluation:** Briefly explain why this initial sentiment was chosen, focusing on key words, phrases, and overall tone.
+
+2. **Counterfactual Creation:**
+   - Imagine that the review is intended to express the opposite sentiment. Describe specific changes needed in wording, tone, or content to achieve this opposite sentiment. Consider:
+     - Changes to specific words or phrases (e.g., replace "amazing" with "terrible").
+     - Adjustments to the overall tone or mood (e.g., shift from enthusiastic to critical).
+     - Modifications to the narrative structure or emphasis (e.g., highlight different aspects of the film).
+   - **Counterfactual changes:** [Describe the changes needed to achieve the opposite sentiment]
+
+3. **Reflection on Difficulty:**
+   - Reflect on the process of creating the counterfactual:
+     - Was it easy or difficult to imagine the opposite sentiment? Did it require minimal changes or a substantial rewrite?
+     - Did the original review have mixed or ambiguous sentiments, making it easier to envision the opposite, or was the sentiment clear and strong?
+   - **Impact of difficulty:** Discuss how the ease or difficulty of creating the counterfactual might influence your understanding of the original sentiment's strength or clarity.
+
+4. **Final Sentiment Classification:**
+   - Based on your reflection, provide a refined sentiment classification. Choose one of the following: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
+   - **Final sentiment:** [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']
+
+Execution sentiment: [Repeat final sentiment output]

@@ -21,7 +21,7 @@ from src.model.sentiment_analysis_batch_runner import analyze_and_save_to_csv
 )
 def main(
     model_name: str = ModelName.QWEN.name,
-    prompt_folder_name: str = "./prompts/",
+    prompt_folder_name: str = "./prompts/strategies/",
     start_index: int = 0,
     end_index: int = 100,
     temperatures: str = None,
@@ -33,11 +33,11 @@ def main(
         You can use either positional or named arguments to run this script.
 
     Positional:
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py QWEN ./prompts/ 0 100
+        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py QWEN ./prompts/strategies/ 0 100
 
     Named:
         PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py \
-            -m QWEN -p ./prompts/ -s 0 -e 100 -t 0.01,0.2,0.8
+            -m QWEN -p ./prompts/strategies/ -s 0 -e 100 -t 0.01,0.2,0.8
 
     Parameters:
         model_name (str): The model to use for sentiment analysis. Options are:
@@ -46,7 +46,7 @@ def main(
                     Default is 'QWEN'.
 
         prompt_folder_name (str): Relative path to the folder containing prompt files to be used during model analysis.
-                    Default is './prompts/'.
+                    Default is './prompts/strategies/'.
 
         start_index (int): The index of the first review to analyze.
                     Default is 0.
@@ -67,12 +67,12 @@ def main(
 
     Examples:
         Positional:
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py QWEN ./prompts/ 0 100
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py PHI ./prompts/ 0 100
+        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py QWEN ./prompts/strategies/ 0 100
+        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py PHI ./prompts/strategies/ 0 100
 
         Named:
         PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py -m PHI
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py -p ./prompts/
+        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py -p ./prompts/strategies/
         PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py -s 100 -e 200
         PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py -t 0.01,0.2,0.8
     """

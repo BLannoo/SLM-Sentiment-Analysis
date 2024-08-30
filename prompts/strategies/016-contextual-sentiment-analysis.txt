@@ -1,0 +1,27 @@
+Given the following movie review: "{review}"
+
+Analyze the sentiment towards the film's execution by following these steps:
+
+1. **Identify Complimentary Comments**:
+   - List any complimentary comments related to the film's execution (e.g., directing, sound design, editing).
+   - Assign a level of emphasis to each comment:
+     - Minor: Briefly mentioned or lightly touched upon.
+     - Notable: Clearly emphasized but not central to the review.
+     - Critical: A central focus or heavily emphasized.
+
+2. **Identify Critical Comments**:
+   - List any critical comments related to the film's execution.
+   - Assign a level of emphasis to each comment using the same scale (Minor, Notable, Critical).
+
+3. **Analyze Tone and Writing Style**:
+   - Determine the overall tone and writing style of the review (e.g., sarcastic, earnest, neutral).
+   - Evaluate how this tone affects the interpretation of the positive or negative comments identified.
+
+4. **Synthesize Findings for Final Sentiment**:
+   - Combine the weighted comments and tone analysis to determine the overall sentiment towards the film's execution.
+   - Consider whether the tone amplifies or diminishes the impact of the positive or negative comments.
+
+5. **Final Sentiment Classification**:
+   - Provide the final sentiment as: Execution sentiment: [Very positive | Positive | Mixed positive | Mixed negative | Negative | Very negative]
+
+Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

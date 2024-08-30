@@ -1,0 +1,18 @@
+Analyze the following movie review and make an initial sentiment evaluation. Then, reconsider your evaluation by reflecting on any additional nuances, details, or context that may have been overlooked in the first evaluation. Provide both the initial evaluation and the final, refined conclusion, explaining any changes in your reasoning.
+
+**Review:**
+{review}
+
+**Step 1: Initial Evaluation:**
+Quickly read the review and provide an initial sentiment classification. Choose one of the following: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
+- **Initial sentiment:** [Initial output]
+- **Reasoning for initial evaluation:** Briefly explain why you chose this sentiment, focusing on the most prominent elements (e.g., specific words, phrases, or general tone).
+
+**Step 2: Re-Evaluation:**
+Reflect on your initial sentiment. Consider any additional details, context, or nuances that might have been missed in the initial evaluation:
+- **Identify Overlooked Elements:** List any words, phrases, or themes that you did not fully consider in your initial evaluation.
+- **Impact of New Elements:** Explain how these new elements might change or reinforce the initial sentiment classification. Consider factors such as irony, mixed messages, subtle emotional cues, or shifts in tone.
+- **Justification for Final Sentiment:** Briefly explain why the final sentiment is the same as or different from the initial sentiment, referencing the additional elements you considered.
+- **Final Sentiment Classification:** Based on this reflection, provide a refined sentiment classification. Choose one of the following: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
+
+Execution sentiment: [Repeat final sentiment output]
