@@ -1,0 +1,13 @@
+Given the following movie review:
+"{review}"
+
+Determine the sentiment, but first explain your reasoning.
+
+Format the output as follows:
+
+```
+Reasoning:
+<your reasoning>
+
+Execution sentiment: <Very positive | Positive | Mixed positive | Mixed negative | Negative | Very negative>
+```
