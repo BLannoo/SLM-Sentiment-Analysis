@@ -23,5 +23,7 @@ class DeviceType(str, Enum):
         if sys.platform == "darwin":
             return DeviceType.MPS
         if "COLAB_GPU" in os.environ:
-            return DeviceType.GPU
+            colab_gpu_value = os.environ["COLAB_GPU"]
+            if colab_gpu_value is not None and colab_gpu_value != "":
+                return DeviceType.GPU
         return DeviceType.CPU
