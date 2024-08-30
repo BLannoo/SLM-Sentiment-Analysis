@@ -110,9 +110,10 @@ def analyze_review(
         f"Label = {review_data.actual_label} (0=Positive; 1=Negative)"
     )
 
-    for experiment in experiments:
+    total_experiments = len(experiments)
+    for exp_index, experiment in enumerate(experiments):
         logger.info(
-            f"Starting experiment with Prompt: {experiment.prompt_file.stem}, "
+            f"Starting experiment {exp_index + 1}/{total_experiments} with Prompt: {experiment.prompt_file.stem}, "
             f"Temperature: {experiment.temperature}, Model: {experiment.slm.model_name.name}, "
             f"Device: {experiment.slm.device_type.name}"
         )
