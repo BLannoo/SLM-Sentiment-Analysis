@@ -29,4 +29,5 @@ class DeviceType(str, Enum):
         return DeviceType.CPU
 
 
+DEFAULT_TEMPERATURES = [0.2, 0.8]
 SEED = 42

@@ -18,3 +18,6 @@ class FilmReviewSentimentOutput(BaseModel):
     # sentiments, there may be cases where it outputs values that do not conform
     # to these requirements. We need to handle such cases flexibly.
     execution_sentiment: str
+
+    def escaped_reasoning(self) -> str:
+        return self.reasoning.replace("\n", "\\n")
