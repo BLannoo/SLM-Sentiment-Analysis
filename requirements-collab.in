@@ -8,7 +8,7 @@ pip-tools
 
 # Prod dependencies
 accelerate
-datasets
+# datasets  # Disabled on Google Collab since conflicting with GPU variant of torch
 langchain==0.2.14  # More compatible with the Google Collab environment
 plac
 torch

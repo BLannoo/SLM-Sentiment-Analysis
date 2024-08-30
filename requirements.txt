@@ -70,7 +70,6 @@ exceptiongroup==1.2.2
 filelock==3.15.4
     # via
     #   -c requirements-collab-freeze.txt
-    #   datasets
     #   huggingface-hub
     #   torch
     #   transformers
@@ -117,7 +116,7 @@ jsonpatch==1.33
     # via langchain-core
 jsonpointer==3.0.0
     # via jsonpatch
-langchain==0.2.15
+langchain==0.2.14
     # via -r requirements.in
 langchain-core==0.2.36
     # via
