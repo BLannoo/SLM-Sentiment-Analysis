@@ -110,6 +110,8 @@ def analyze_review(
         f"Label = {review_data.actual_label} (0=Positive; 1=Negative)"
     )
 
+    logger.info(f"Review Text: {review_data.review_text}")
+
     total_experiments = len(experiments)
     for exp_index, experiment in enumerate(experiments):
         logger.info(
@@ -144,8 +146,7 @@ def process_sentiment_analysis(
         f"Prompt {experiment.prompt_file.stem}, Temperature {experiment.temperature}, "
         f"Execution Time: {execution_time:.2f} minutes, Label: {review_data.actual_label}, "
         f"Execution Sentiment: {sentiment_data.execution_sentiment}, "
-        f"Reasoning: {sentiment_data.escaped_reasoning()}, "
-        f"Review: {review_data.review_text}"
+        f"Reasoning: {sentiment_data.escaped_reasoning()}"
     )
 
     writer.writerow(
