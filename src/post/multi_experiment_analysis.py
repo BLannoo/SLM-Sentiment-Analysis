@@ -259,7 +259,9 @@ def perform_analysis(file_path: Path, excluded_templates: list[str] = None) -> R
 if __name__ == "__main__":
     print(
         perform_analysis(
-            file_path=DATA_FOLDER / "collab" / "start=2024-08-30T16:26:27.csv",
-            excluded_templates=["006-priming-with-key-word"],
+            file_path=DATA_FOLDER
+            / "collab"
+            / "start=2024-08-31T_merged-QWEN-T=02-index=1-100.csv",
+            # excluded_templates=["006-priming-with-key-word"],
         )
     )

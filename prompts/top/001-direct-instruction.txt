@@ -1,0 +1,16 @@
+**Review:**
+{review}
+
+**Instructions:**
+
+Classify the execution sentiment of the movie review by carefully analyzing its content.
+Choose the most appropriate sentiment from the following categories: 'Very positive',
+'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'. Consider the
+overall tone, word choice, and context provided in the review when making your decision.
+
+**Output Format:**
+
+Reasoning:
+<summary of the thinking steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

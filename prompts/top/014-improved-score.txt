@@ -1,0 +1,37 @@
+**Review:**
+{review}
+
+**Instructions:**
+
+Classify the execution sentiment of the movie review by evaluating it solely based on the film's
+execution. Follow these steps:
+
+1. **Filter out comments** about the subject matter, focusing only on opinions related to the
+   film's execution.
+
+2. **Identify and list positive and negative opinions** specifically related to the execution.
+
+3. **Assign a score (-3 to +3)** for each listed opinion based on its impact in the review:
+   - -3: Extremely negative impact on the review's sentiment.
+   - -2: Strong negative impact.
+   - -1: Mild negative impact.
+   - +1: Mild positive impact.
+   - +2: Strong positive impact.
+   - +3: Extremely positive impact.
+
+4. **Calculate the total score** to determine the final sentiment:
+   - Very negative: Total score ≤ -3
+   - Negative: Total score -2 to -1
+   - Mixed negative: Total score = 0 but more negative than positive opinions.
+   - Mixed positive: Total score = 0 but more positive than negative opinions.
+   - Positive: Total score +1 to +2
+   - Very positive: Total score ≥ +3
+
+Provide justification for each score assigned and sum the scores to determine the final sentiment.
+
+**Output Format:**
+
+Reasoning:
+<summary of the thinking steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

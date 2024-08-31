@@ -14,11 +14,14 @@ def parse_logs_to_csv(log_file_path: Path, csv_output_path: Path):
         re.DOTALL,
     )
     review_text_pattern = re.compile(r"^Review Text: (.+)$")
-    completed_analysis_pattern = re.compile(
+    completed_analysis_pattern_part_1 = re.compile(
         r"Completed analysis for Review ID (\d+). Experiment \((\d+\/\d+)\): "
-        r"Prompt (.+), Temperature ([\d.]+), Execution Time: ([\d.]+) minutes, "
-        r"Label: (\d), Execution Sentiment: (.+?), Reasoning: (.+)"
+        r"Prompt (.+), Temperature ([\d.]+)$"
     )
+    completed_analysis_pattern_part_2 = re.compile(
+        r"^Execution Time: ([\d.]+) minutes, Label: (\d), Execution Sentiment: (.+?)$"
+    )
+    completed_analysis_pattern_part_3 = re.compile(r"^Reasoning: (.+)$")
 
     with open(log_file_path, "r", encoding="utf-8") as log_file, open(
         csv_output_path, "w", newline="", encoding="utf-8"
@@ -57,15 +60,27 @@ def parse_logs_to_csv(log_file_path: Path, csv_output_path: Path):
             if review_text_match:
                 review_text = review_text_match.group(1)
 
-            completed_analysis_match = completed_analysis_pattern.search(line)
-            if completed_analysis_match:
-                review_id = completed_analysis_match.group(1)
-                prompt_template = completed_analysis_match.group(3)
-                temperature = completed_analysis_match.group(4)
-                execution_time = completed_analysis_match.group(5)
-                label = completed_analysis_match.group(6)
-                execution_sentiment = completed_analysis_match.group(7)
-                reasoning = completed_analysis_match.group(8)
+            completed_analysis_match_part_1 = completed_analysis_pattern_part_1.search(
+                line
+            )
+            if completed_analysis_match_part_1:
+                review_id = completed_analysis_match_part_1.group(1)
+                prompt_template = completed_analysis_match_part_1.group(3)
+                temperature = completed_analysis_match_part_1.group(4)
+
+            completed_analysis_match_part_2 = completed_analysis_pattern_part_2.search(
+                line
+            )
+            if completed_analysis_match_part_2:
+                execution_time = completed_analysis_match_part_2.group(1)
+                label = completed_analysis_match_part_2.group(2)
+                execution_sentiment = completed_analysis_match_part_2.group(3)
+
+            completed_analysis_match_part_3 = completed_analysis_pattern_part_3.search(
+                line
+            )
+            if completed_analysis_match_part_3:
+                reasoning = completed_analysis_match_part_3.group(1)
 
                 writer.writerow(
                     [
