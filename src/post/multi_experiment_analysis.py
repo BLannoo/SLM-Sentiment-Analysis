@@ -107,7 +107,7 @@ class Report:
     def _soft_wrap_text(self, text: str) -> str:
         return "\n".join(textwrap.wrap(text, self.terminal_width))
 
-    def plot_accuracy(self):
+    def plot_accuracy(self, ax):
         self.final_df["Model_Temperature"] = (
             self.final_df["Model"]
             + " (T="
@@ -126,7 +126,6 @@ class Report:
             self.final_df["Prompt Template"], categories=sorted_prompts, ordered=True
         )
 
-        fig, ax = plt.subplots(figsize=(12, 6))
         sns.barplot(
             data=self.final_df,
             x="Prompt Template",
@@ -134,10 +133,10 @@ class Report:
             hue="Model_Temperature",
             palette=PALETTE,
             ax=ax,
+            order=sorted_prompts,
         )
 
-        prompt_labels = self.final_df["Prompt Template"].unique()
-        rotate_xticks(ax, prompt_labels, rotation=45, ha="right")
+        rotate_xticks(ax, sorted_prompts, rotation=45, ha="right")
 
         ax.set_title(
             "Accuracy of Each Prompt Template for Different Models and Temperatures"
@@ -151,11 +150,7 @@ class Report:
             ncol=4,
         )
 
-        fig.tight_layout()
-
-        return fig
-
-    def plot_execution_time_distribution(self):
+    def plot_execution_time_distribution(self, ax):
         self.original_df["Experiment"] = (
             self.original_df["Model"]
             + " (T="
@@ -173,21 +168,18 @@ class Report:
             + self.original_df["Device"]
         )
 
-        # Calculate the median execution time for each experiment and sort by it
         experiment_medians = (
             self.original_df.groupby("Experiment")["Execution Time (minutes)"]
             .median()
             .sort_values()
         )
 
-        # Reorder the DataFrame based on the sorted experiments
         sorted_df = (
             self.original_df.set_index("Experiment")
             .loc[experiment_medians.index]
             .reset_index()
         )
 
-        fig, ax = plt.subplots(figsize=(15, 8))
         sns.boxplot(
             data=sorted_df,
             x="Experiment",
@@ -204,9 +196,6 @@ class Report:
         ax.set_title("Execution Time Distribution (minutes) per Experiment")
         ax.set_xlabel("Experiment (Model, Temperature, Prompt Template, Device)")
         ax.set_ylabel("Execution Time (minutes)")
-
-        fig.tight_layout()
-        return fig
 
 
 def rotate_xticks(ax, labels, rotation=45, ha="right"):
@@ -392,12 +381,26 @@ def perform_analysis(file_path: Path, excluded_templates: list[str] = None) -> R
     )
 
 
-if __name__ == "__main__":
-    report = perform_analysis(
-        file_path=DATA_FOLDER / "gold" / "ALL-index=1-100.csv",
-        # excluded_templates=["006-priming-with-key-word"],
-    )
-    print(report)
-    report.plot_accuracy()
-    report.plot_execution_time_distribution()
+def render_as_1_figure(report: Report):
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(15, 12), constrained_layout=True)
+    report.plot_accuracy(ax=ax1)
+    report.plot_execution_time_distribution(ax=ax2)
     plt.show()
+
+
+def render_as_multiple_figures(report: Report):
+    fig1, ax1 = plt.subplots(figsize=(15, 6), constrained_layout=True)
+    report.plot_accuracy(ax=ax1)
+    fig2, ax2 = plt.subplots(figsize=(15, 6), constrained_layout=True)
+    report.plot_execution_time_distribution(ax=ax2)
+    plt.show()
+
+
+if __name__ == "__main__":
+    _report = perform_analysis(
+        file_path=DATA_FOLDER / "gold" / "ALL-index=1-100.csv",
+    )
+    print(_report)
+
+    render_as_1_figure(_report)
+    # render_as_multiple_figures(_report)
