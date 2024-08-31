@@ -13,10 +13,7 @@ def parse_logs_to_csv(log_file_path: Path, csv_output_path: Path):
         r"Output File:",
         re.DOTALL,
     )
-    start_review_pattern = re.compile(
-        r"Starting analysis for Review ID (\d+) \((\d+)\/(\d+)\): "
-        r"Label = (\d) \(0=Positive; 1=Negative\)\nReview Text: (.+)"
-    )
+    review_text_pattern = re.compile(r"^Review Text: (.+)$")
     completed_analysis_pattern = re.compile(
         r"Completed analysis for Review ID (\d+). Experiment \((\d+\/\d+)\): "
         r"Prompt (.+), Temperature ([\d.]+), Execution Time: ([\d.]+) minutes, "
@@ -56,10 +53,9 @@ def parse_logs_to_csv(log_file_path: Path, csv_output_path: Path):
         review_text = None
 
         for line in log_content.splitlines():
-            start_review_match = start_review_pattern.search(line)
-            if start_review_match:
-                review_text = start_review_match.group(5).strip()
-                continue
+            review_text_match = review_text_pattern.search(line)
+            if review_text_match:
+                review_text = review_text_match.group(1)
 
             completed_analysis_match = completed_analysis_pattern.search(line)
             if completed_analysis_match:

@@ -1,4 +1,7 @@
-Given the following movie review: "{review}"
+**Review:**
+{review}
+
+**Instructions:**
 
 Analyze the sentiment towards the film's execution, ignoring any opinions related to the subject of the film.
 

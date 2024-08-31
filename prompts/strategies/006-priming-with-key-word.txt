@@ -1,4 +1,11 @@
-To classify the sentiment of the following movie review, use the list of keywords below as a guide. Focus on how frequently and prominently these keywords, or similar expressions, appear in the text. Also, consider the overall context in which they are used.
+**Review:**
+{review}
+
+**Instructions:**
+
+Classify the execution sentiment of the movie review by focusing on the frequency and
+prominence of sentiment-related keywords listed below, or similar expressions, found in the
+text. Consider how these keywords appear in the overall context of the review.
 
 **Sentiment Analysis Keywords:**
 - **Very positive:** exceptional, outstanding, phenomenal, superb
@@ -8,14 +15,22 @@ To classify the sentiment of the following movie review, use the list of keyword
 - **Negative:** boring, bad, poor, disappointing, lacks depth
 - **Very negative:** awful, terrible, unbearable, dreadful, appalling
 
-1. **Identify Keywords:** Highlight any words or phrases in the review that match or closely relate to the keywords provided above.
-   - Keywords found: [List of keywords and related words]
+1. **Identify Keywords:** Highlight words or phrases in the review that match or are closely
+related to the provided keywords.
+   - Keywords found: [List of identified keywords]
 
-2. **Assess Keyword Frequency and Prominence:** Determine how frequently these keywords appear and how prominently they are used (e.g., are they central to the review's main points or mentioned in passing?).
-   - Keyword analysis: [Frequency and prominence analysis]
+2. **Assess Keyword Frequency and Prominence:** Determine how often these keywords
+appear and how prominently they are used (e.g., central to the review’s main points or mentioned
+briefly).
+   - Keyword analysis: [Frequency and prominence details]
 
-3. **Evaluate Overall Context:** Consider how the keywords fit within the overall context and tone of the review. Are they consistent throughout, or are there contrasting elements?
-   - Contextual analysis: [Context and tone analysis]
+3. **Evaluate Overall Context:** Analyze how the identified keywords fit within the review's
+overall context and tone. Are they consistently positive or negative, or are there mixed elements?
+   - Contextual analysis: [Context and tone evaluation]
 
-4. **Classify the Sentiment:** Based on the keyword analysis and the overall context, classify the review's sentiment as one of the following: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
-   - Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']
+**Output Format:**
+
+Reasoning:
+<summary of the thinking steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

@@ -1,33 +1,37 @@
-A movie review has been submitted, and two experts will debate its sentiment. The layman will lead the conversation by asking questions to better understand the sentiment expressed in the review. Expert A will argue that the sentiment is negative, while Expert B will argue that the sentiment is positive. The layman will ask questions to challenge both perspectives and then decide which expert's argument is more convincing. The layman will write a final conclusion about the review's sentiment in simple terms.
-
 **Review:**
 {review}
 
-**Layman-Led Conversation:**
+**Instructions:**
 
-- **Layman:** Start by asking Expert A a question to understand why they think the review expresses a negative sentiment.
-  - Example Question: "What parts of the review do you think show a strong negative sentiment, and why?"
+Classify the execution sentiment of the movie review by having a layman ask a series of generic
+questions to two experts, each providing answers with their own bias—Expert A with a negative
+bias and Expert B with a positive bias.
 
-- **Expert A (Negative Argument):** Answer the layman's question, highlighting specific phrases, tone, or elements in the review that support a 'Negative' or 'Very negative' sentiment.
+- **Layman:** Ask a general question to both experts to understand different perspectives
+  on the review’s sentiment.
+  - Example Question: "What are the most notable elements of the review, and how do they
+    contribute to its sentiment?"
+
+- **Expert A (Negative Argument):** Answer with a negative bias, highlighting phrases, tone, or
+  elements in the review that support a 'Negative' or 'Very negative' sentiment.
   - Response: [Expert A's answer]
 
-- **Layman:** Ask Expert B a question to understand why they think the review expresses a positive sentiment.
-  - Example Question: "Which parts of the review do you believe convey a positive sentiment, and what makes them significant?"
-
-- **Expert B (Positive Argument):** Answer the layman's question, highlighting specific phrases, tone, or elements in the review that support a 'Positive' or 'Very positive' sentiment.
+- **Expert B (Positive Argument):** Answer with a positive bias, highlighting phrases, tone, or
+  elements in the review that support a 'Positive' or 'Very positive' sentiment.
   - Response: [Expert B's answer]
 
-- **Layman:** Continue asking questions to both experts, such as:
-  - "Are there any neutral or mixed elements in the review?"
-  - "How would you compare the intensity of positive and negative sentiments?"
+- **Layman:** Continue with additional generic questions that both experts must answer:
+  - "Are there any elements in the other experts statement that are about the subject rather than the execution
+    and should be dismissed?"
+  - "How would you evaluate the intensity and frequency of positive versus negative sentiments
+    in the review?"
   - [Layman's additional questions]
 
-- **Experts:** Each expert responds to the layman's questions, providing further evidence and reasoning to support their perspective.
+- **Experts:** Each expert responds
 
-- **Layman’s Final Decision:**
-  1. Summarize both experts' arguments based on their responses to your questions.
-  2. Decide which argument is more convincing or whether the review suggests a 'Mixed positive' or 'Mixed negative' sentiment.
-  3. Choose the final sentiment classification: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
+**Output Format:**
 
-**Layman's Conclusion:**
-Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']
+Reasoning:
+<summary of the role play steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

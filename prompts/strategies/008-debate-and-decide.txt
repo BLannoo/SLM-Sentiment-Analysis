@@ -1,26 +1,33 @@
-A movie review has been submitted, and two experts will debate its sentiment. The first expert (Expert A) will argue that the sentiment is negative, while the second expert (Expert B) will argue that the sentiment is positive. A layman will listen to both arguments, evaluate their reasoning, and decide which expert is more convincing. The layman will then write a final conclusion about the review's sentiment in simple terms.
-
 **Review:**
 {review}
 
-**Debate:**
+**Instructions:**
+
+Classify the execution sentiment of the movie review by having two experts debate the
+sentiment and a layman decide which argument is more convincing.
 
 - **Expert A (Negative Argument):**
-  1. Identify any phrases or sentences in the review that convey negative sentiment.
-  2. Discuss specific elements such as tone, word choice, or context that support a 'Negative' or 'Very negative' sentiment.
-  3. Provide examples from the text to substantiate your points.
+  1. Identify phrases or sentences that convey negative sentiment.
+  2. Discuss specific elements such as tone, word choice, or context supporting a
+     'Negative' or 'Very negative' sentiment.
+  3. Provide examples from the text to substantiate the points.
 
 - **Expert B (Positive Argument):**
-  1. Identify any phrases or sentences in the review that convey positive sentiment.
-  2. Discuss specific elements such as tone, word choice, or context that support a 'Positive' or 'Very positive' sentiment.
-  3. Provide examples from the text to substantiate your points.
+  1. Identify phrases or sentences that convey positive sentiment.
+  2. Discuss specific elements such as tone, word choice, or context supporting a
+     'Positive' or 'Very positive' sentiment.
+  3. Provide examples from the text to substantiate the points.
 
 - **Layman:**
-  1. Summarize Expert A’s argument, noting the key points and examples used to support a negative sentiment.
-  2. Summarize Expert B’s argument, noting the key points and examples used to support a positive sentiment.
-  3. Evaluate which argument is stronger based on clarity, evidence, and overall reasoning.
-  4. Consider whether the review contains both positive and negative elements, and if so, whether it suggests a 'Mixed positive' or 'Mixed negative' sentiment.
-  5. Decide on the most convincing sentiment classification: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
+  1. Summarize Expert A’s argument, noting key points and examples for a negative sentiment.
+  2. Summarize Expert B’s argument, noting key points and examples for a positive sentiment.
+  3. Evaluate which argument is stronger based on clarity, evidence, and reasoning.
+  4. Decide on the most convincing sentiment classification: 'Very positive', 'Positive', 'Mixed
+     positive', 'Mixed negative', 'Negative', or 'Very negative'.
 
-**Layman's Conclusion:**
-Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']
+**Output Format:**
+
+Reasoning:
+<summary of the role play steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

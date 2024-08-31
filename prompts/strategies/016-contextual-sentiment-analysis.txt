@@ -1,4 +1,7 @@
-Given the following movie review: "{review}"
+**Review:**
+{review}
+
+**Instructions:**
 
 Analyze the sentiment towards the film's execution by following these steps:
 
@@ -24,4 +27,9 @@ Analyze the sentiment towards the film's execution by following these steps:
 5. **Final Sentiment Classification**:
    - Provide the final sentiment as: Execution sentiment: [Very positive | Positive | Mixed positive | Mixed negative | Negative | Very negative]
 
-Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']
+**Output Format:**
+
+Reasoning:
+<summary of the thinking steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

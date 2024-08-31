@@ -1,29 +1,42 @@
-You are tasked with analyzing the sentiment of the following movie review. Use a structured approach by exploring different lines of reasoning to reach a conclusion.
-
 **Review:**
 {review}
 
+**Instructions:**
+
+Classify the execution sentiment of the movie review by using a structured approach, exploring
+different lines of reasoning to reach a conclusion:
+
 1. **Branch 1: Positive Sentiment Analysis**
-   - Identify all key phrases or sentences that suggest a positive sentiment. Note any words or expressions that convey praise, approval, or positivity.
-   - Evaluate the strength of these positive sentiments: Are they mild (e.g., "good") or strong (e.g., "exceptional")?
-   - Determine if the positive sentiments dominate this review.
+   - Identify key phrases or sentences that suggest a positive sentiment. Note any words or
+     expressions that convey praise, approval, or positivity.
+   - Evaluate the strength of these positive sentiments: Are they mild (e.g., "good") or strong
+     (e.g., "exceptional")?
+   - Determine if positive sentiments dominate this review.
 
 2. **Branch 2: Negative Sentiment Analysis**
-   - Identify all key phrases or sentences that suggest a negative sentiment. Note any words or expressions that convey criticism, disapproval, or negativity.
-   - Evaluate the strength of these negative sentiments: Are they mild (e.g., "mediocre") or strong (e.g., "terrible")?
-   - Determine if the negative sentiments dominate this review.
+   - Identify key phrases or sentences that suggest a negative sentiment. Note any words or
+     expressions that convey criticism, disapproval, or negativity.
+   - Evaluate the strength of these negative sentiments: Are they mild (e.g., "mediocre") or
+     strong (e.g., "terrible")?
+   - Determine if negative sentiments dominate this review.
 
 3. **Branch 3: Mixed Sentiment Analysis**
-   - Identify any indications of mixed sentiment, where both positive and negative elements are present.
-   - Evaluate the balance between positive and negative phrases: Is there a clear dominance, or do they appear balanced?
-   - Determine if the review expresses a 'Mixed positive' or 'Mixed negative' sentiment based on the balance and intensity of each side.
+   - Identify indications of mixed sentiment, where both positive and negative elements are
+     present.
+   - Evaluate the balance between positive and negative phrases: Is there a clear dominance,
+     or do they appear balanced?
+   - Determine if the review expresses a 'Mixed positive' or 'Mixed negative' sentiment based
+     on the balance and intensity of each side.
 
 4. **Compare and Weigh Branches**
-   - Compare the conclusions from each branch. If the review has both positive and negative elements, consider their frequency, intensity, and overall balance.
-   - Decide which branch has the most substantial evidence for its conclusion (e.g., predominantly positive, predominantly negative, or balanced).
+   - Compare the conclusions from each branch. If the review has both positive and negative
+     elements, consider their frequency, intensity, and overall balance.
+   - Decide which branch provides the most substantial evidence for its conclusion (e.g.,
+     predominantly positive, predominantly negative, or balanced).
 
-5. **Final Sentiment Classification**
-   - Based on the most compelling branch or combination of branches, classify the overall sentiment as one of the following: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
-   - Provide a justification for your final classification, explaining which branches contributed most to your decision.
+**Output Format:**
 
-Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']
+Reasoning:
+<summary of the thinking steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

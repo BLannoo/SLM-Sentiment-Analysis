@@ -1,10 +1,21 @@
-As an expert film critic for a prestigious movie magazine, your task is to analyze a review to determine the sentiment it conveys. Consider the review in the context of typical film critiques where factors such as narrative depth, cinematography quality, acting performance, audience reception, and overall artistic impact are essential for your assessment.
-
-When evaluating the review, take into account the subtle nuances that might influence the sentiment — for example, balanced or contrasting opinions, underlying tones of sarcasm or irony, or specific praises or criticisms directed at various elements of the film.
-
-Is the overall sentiment expressed 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'? Focus on the choice of words, tone, and the critic's underlying intent as you make your assessment.
-
 **Review:**
 {review}
 
-Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative']
+**Instructions:**
+
+Classify the execution sentiment of the movie review as an expert film critic for a prestigious movie
+magazine that uses a 6-star rating system for movies. Each star corresponds to a specific sentiment:
+'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', or 'Very negative'.
+
+Consider the review in the context of typical film critiques where factors like narrative depth,
+cinematography quality, acting performance, audience reception, and overall artistic impact
+are essential. Evaluate subtle nuances, such as balanced or contrasting opinions, tones of
+sarcasm or irony, or specific praises or criticisms of different film elements. Focus on the
+choice of words, tone, and the critic's underlying intent.
+
+**Output Format:**
+
+Reasoning:
+<summary of the thinking steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

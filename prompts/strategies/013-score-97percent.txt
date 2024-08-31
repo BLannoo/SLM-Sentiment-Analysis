@@ -1,4 +1,7 @@
-Given the following movie review: "{review}"
+**Review:**
+{review}
+
+**Instructions:**
 
 Evaluate the sentiment focused solely on the film's execution by:
 
@@ -7,4 +10,9 @@ Identifying and listing positive and negative opinions related to the execution.
 Assigning a score (-3 to +3) for each listed opinion based on its impact in the review.
 Calculate the total score to derive the final sentiment.
 
-Execution sentiment: <Very positive | Positive | Mixed positive | Mixed negative | Negative | Very negative>
+**Output Format:**
+
+Reasoning:
+<summary of the thinking steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

@@ -1,0 +1,25 @@
+Ok can you improve this prompt, following these rules:
+
+* Make sure the prompting strategy stays the same as in the provided prompt
+* Make sure the review placeholder comes at the top, the instructions details in the middle and the output format at the bottom
+* Make sure the output format specifies to output the reasoning or processing steps to
+* Make sure the output format specifies to end with a conclusion like: Execution sentiment: [Output one of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']
+* Ensure all sentences and instructions are broken into lines of around 80-100 characters for readability, with visual checks to confirm no text runs too far to the right.
+* Do not make the new prompt longer than the original
+* Provide the new prompt inside a markdown code block
+
+make sure the prompt fits this format (with you filling int the double << >> while keeping the single <> for the prompt):
+
+**Review:**
+{review}
+
+**Instructions:**
+
+Classify the execution sentiment of the movie review, <<provide the strategy specific instructions>>
+
+**Output Format:**
+
+Reasoning:
+<summary of <<the thinking steps and reflections>> done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']
