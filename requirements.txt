@@ -36,6 +36,10 @@ charset-normalizer==3.3.2
     # via requests
 click==8.1.7
     # via pip-tools
+contourpy==1.3.0
+    # via matplotlib
+cycler==0.12.1
+    # via matplotlib
 datasets==2.21.0
     # via -r requirements.in
 dill==0.3.7
@@ -50,6 +54,8 @@ filelock==3.15.4
     #   huggingface-hub
     #   torch
     #   transformers
+fonttools==4.53.1
+    # via matplotlib
 frozenlist==1.4.1
     # via
     #   aiohttp
@@ -85,6 +91,8 @@ jsonpatch==1.33
     # via langchain-core
 jsonpointer==3.0.0
     # via jsonpatch
+kiwisolver==1.4.5
+    # via matplotlib
 langchain==0.2.14
     # via -r requirements.in
 langchain-core==0.2.36
@@ -99,6 +107,10 @@ langsmith==0.1.107
     #   langchain-core
 markupsafe==2.1.5
     # via jinja2
+matplotlib==3.9.2
+    # via
+    #   -r requirements.in
+    #   seaborn
 mpmath==1.3.0
     # via sympy
 multidict==6.0.5
@@ -113,10 +125,13 @@ numpy==1.26.4
     # via
     #   -r requirements.in
     #   accelerate
+    #   contourpy
     #   datasets
     #   langchain
+    #   matplotlib
     #   pandas
     #   pyarrow
+    #   seaborn
     #   transformers
 orjson==3.10.7
     # via langsmith
@@ -127,9 +142,14 @@ packaging==24.1
     #   datasets
     #   huggingface-hub
     #   langchain-core
+    #   matplotlib
     #   transformers
 pandas==2.1.4
-    # via datasets
+    # via
+    #   datasets
+    #   seaborn
+pillow==10.4.0
+    # via matplotlib
 pip-tools==7.4.1
     # via -r requirements.in
 plac==1.4.3
@@ -145,12 +165,16 @@ pydantic==2.8.2
     #   langsmith
 pydantic-core==2.20.1
     # via pydantic
+pyparsing==3.1.4
+    # via matplotlib
 pyproject-hooks==1.1.0
     # via
     #   build
     #   pip-tools
 python-dateutil==2.8.2
-    # via pandas
+    # via
+    #   matplotlib
+    #   pandas
 pytz==2024.1
     # via pandas
 pyyaml==6.0.2
@@ -174,6 +198,8 @@ safetensors==0.4.4
     # via
     #   accelerate
     #   transformers
+seaborn==0.13.2
+    # via -r requirements.in
 six==1.16.0
     # via python-dateutil
 sniffio==1.3.1

@@ -3,7 +3,12 @@ import numpy as np
 import textwrap
 from pathlib import Path
 
+import seaborn as sns
+from matplotlib import pyplot as plt
+
 from src.consts import DATA_FOLDER
+
+PALETTE = "Paired"
 
 # ANSI color codes for terminal output
 BLUE = "\033[94m"
@@ -47,11 +52,13 @@ class GeneralMetrics:
 class Report:
     def __init__(
         self,
+        original_df: pd.DataFrame,
         final_df: pd.DataFrame,
         general_metrics: GeneralMetrics,
         review_dfs: list,
         terminal_width: int = 215,
     ):
+        self.original_df = original_df
         self.final_df = final_df
         self.general_metrics = general_metrics
         self.review_dfs = review_dfs
@@ -99,6 +106,132 @@ class Report:
 
     def _soft_wrap_text(self, text: str) -> str:
         return "\n".join(textwrap.wrap(text, self.terminal_width))
+
+    def plot_accuracy(self):
+        self.final_df["Model_Temperature"] = (
+            self.final_df["Model"]
+            + " (T="
+            + self.final_df["Temperature"].astype(str)
+            + ")"
+        )
+
+        specific_model_temp = "QWEN (T=0.2)"
+        sorted_prompts = (
+            self.final_df[self.final_df["Model_Temperature"] == specific_model_temp]
+            .sort_values(by="Accuracy", ascending=False)["Prompt Template"]
+            .unique()
+        )
+
+        self.final_df["Prompt Template"] = pd.Categorical(
+            self.final_df["Prompt Template"], categories=sorted_prompts, ordered=True
+        )
+
+        fig, ax = plt.subplots(figsize=(12, 6))
+        sns.barplot(
+            data=self.final_df,
+            x="Prompt Template",
+            y="Accuracy",
+            hue="Model_Temperature",
+            palette=PALETTE,
+            ax=ax,
+        )
+
+        prompt_labels = self.final_df["Prompt Template"].unique()
+        rotate_xticks(ax, prompt_labels, rotation=45, ha="right")
+
+        ax.set_title(
+            "Accuracy of Each Prompt Template for Different Models and Temperatures"
+        )
+        ax.set_xlabel("Prompt Template")
+        ax.set_ylabel("Accuracy")
+
+        ax.legend(
+            title="Model and Temperature",
+            loc="lower center",
+            ncol=4,
+        )
+
+        fig.tight_layout()
+
+        return fig
+
+    def plot_execution_time_distribution(self):
+        self.original_df["Experiment"] = (
+            self.original_df["Model"]
+            + " (T="
+            + self.original_df["Temperature"].astype(str)
+            + "), "
+            + self.original_df["Device"]
+            + ",\n"
+            + self.original_df["Prompt Template"]
+        )
+        self.original_df["Model-Temperature-Device"] = (
+            self.original_df["Model"]
+            + " (T="
+            + self.original_df["Temperature"].astype(str)
+            + "), "
+            + self.original_df["Device"]
+        )
+
+        # Calculate the median execution time for each experiment and sort by it
+        experiment_medians = (
+            self.original_df.groupby("Experiment")["Execution Time (minutes)"]
+            .median()
+            .sort_values()
+        )
+
+        # Reorder the DataFrame based on the sorted experiments
+        sorted_df = (
+            self.original_df.set_index("Experiment")
+            .loc[experiment_medians.index]
+            .reset_index()
+        )
+
+        fig, ax = plt.subplots(figsize=(15, 8))
+        sns.boxplot(
+            data=sorted_df,
+            x="Experiment",
+            y="Execution Time (minutes)",
+            hue="Model-Temperature-Device",
+            palette=PALETTE,
+            ax=ax,
+            dodge=False,
+        )
+
+        experiment_labels = sorted_df["Experiment"].unique()
+        rotate_xticks(ax, experiment_labels, rotation=45, ha="right")
+
+        ax.set_title("Execution Time Distribution (minutes) per Experiment")
+        ax.set_xlabel("Experiment (Model, Temperature, Prompt Template, Device)")
+        ax.set_ylabel("Execution Time (minutes)")
+
+        fig.tight_layout()
+        return fig
+
+
+def rotate_xticks(ax, labels, rotation=45, ha="right"):
+    """
+    Rotate the x-axis tick labels for a given Axes object.
+
+    Args:
+    - ax: The matplotlib Axes object.
+    - labels: The list of labels to set on the x-axis.
+    - rotation: The rotation angle for the tick labels.
+    - ha: Horizontal alignment of the tick labels ('right', 'center', 'left').
+
+    Returns:
+    - ax: The modified Axes object with rotated tick labels.
+
+    Why redefine this function:
+    Using plt.xticks() to rotate tick labels has a global effect and only applies to
+    the most recently created plot, making it unsuitable when dealing with multiple
+    plots in the same script. By defining this function, we ensure that each plot's
+    x-axis labels are rotated independently, providing more control and preventing
+    conflicts between different plots.
+    """
+    ax.set_xticks(range(len(labels)))
+    ax.set_xticklabels(labels, rotation=rotation, ha=ha)
+    return ax
 
 
 def load_data(file_path: Path) -> pd.DataFrame:
@@ -252,18 +385,19 @@ def perform_analysis(file_path: Path, excluded_templates: list[str] = None) -> R
     review_dfs = extract_failed_reviews(df, excluded_templates=excluded_templates)
 
     return Report(
-        final_df,
-        general_metrics,
-        review_dfs,
+        original_df=df,
+        final_df=final_df,
+        general_metrics=general_metrics,
+        review_dfs=review_dfs,
     )
 
 
 if __name__ == "__main__":
-    print(
-        perform_analysis(
-            file_path=DATA_FOLDER
-            / "collab"
-            / "start=2024-08-31T_merged-QWEN-T=02-index=1-100.csv",
-            # excluded_templates=["006-priming-with-key-word"],
-        )
+    report = perform_analysis(
+        file_path=DATA_FOLDER / "gold" / "ALL-index=1-100.csv",
+        # excluded_templates=["006-priming-with-key-word"],
     )
+    print(report)
+    report.plot_accuracy()
+    report.plot_execution_time_distribution()
+    plt.show()

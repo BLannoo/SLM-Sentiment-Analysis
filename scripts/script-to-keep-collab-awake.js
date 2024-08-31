@@ -21,5 +21,5 @@ function keepSessionActive() {
     }
 }
 
-const intervalId = setInterval(keepSessionActive, 10000);
+const intervalId = setInterval(keepSessionActive, 30000);
 // clearInterval(intervalId);
