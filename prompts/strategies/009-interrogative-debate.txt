@@ -3,31 +3,31 @@
 
 **Instructions:**
 
-Classify the execution sentiment of the movie review by having a layman ask a series of generic
-questions to two experts, each providing answers with their own bias—Expert A with a negative
-bias and Expert B with a positive bias.
+Classify the execution sentiment of the movie review by having a layman ask two experts
+for their perspectives. Expert A has a negative bias, while Expert B has a positive bias. The
+layman will then synthesize these views to determine the overall sentiment.
 
-- **Layman:** Ask a general question to both experts to understand different perspectives
-  on the review’s sentiment.
-  - Example Question: "What are the most notable elements of the review, and how do they
-    contribute to its sentiment?"
+1. **Layman:** Ask the experts to identify the most notable elements of the review and how
+   they contribute to the sentiment.
+   - Example Question: "What are the key elements of the review that stand out, and how do
+     they shape its overall sentiment?"
 
-- **Expert A (Negative Argument):** Answer with a negative bias, highlighting phrases, tone, or
-  elements in the review that support a 'Negative' or 'Very negative' sentiment.
-  - Response: [Expert A's answer]
+2. **Expert A (Negative Argument):** Respond with a negative perspective, focusing on
+   phrases, tone, or elements that indicate a 'Negative' or 'Very negative' sentiment.
+   - Response: [Expert A's negative-biased answer]
 
-- **Expert B (Positive Argument):** Answer with a positive bias, highlighting phrases, tone, or
-  elements in the review that support a 'Positive' or 'Very positive' sentiment.
-  - Response: [Expert B's answer]
+3. **Expert B (Positive Argument):** Respond with a positive perspective, focusing on phrases,
+   tone, or elements that indicate a 'Positive' or 'Very positive' sentiment.
+   - Response: [Expert B's positive-biased answer]
 
-- **Layman:** Continue with additional generic questions that both experts must answer:
-  - "Are there any elements in the other experts statement that are about the subject rather than the execution
-    and should be dismissed?"
-  - "How would you evaluate the intensity and frequency of positive versus negative sentiments
-    in the review?"
-  - [Layman's additional questions]
+4. **Layman:** Summarize both expert opinions and compare their points. Ask a concluding
+   question to determine which sentiment is more convincing:
+   - Example Question: "Considering both positive and negative perspectives, is the overall
+     sentiment more positive, negative, or mixed?"
 
-- **Experts:** Each expert responds
+5. **Conclusion:** The layman weighs the arguments, considers the balance and intensity of
+   opinions, and provides the final sentiment classification based on which argument is stronger
+   or if both are balanced.
 
 **Output Format:**
 
