@@ -39,6 +39,9 @@ def plot_accuracy(final_df, ax):
         final_df["Prompt Template"], categories=sorted_prompts, ordered=True
     )
 
+    # Determine a consistent order for the hue by sorting the unique values
+    sorted_configurations = sorted(final_df["Configuration"].unique())
+
     sns.barplot(
         data=final_df,
         x="Prompt Template",
@@ -47,6 +50,7 @@ def plot_accuracy(final_df, ax):
         palette=PALETTE,
         ax=ax,
         order=sorted_prompts,
+        hue_order=sorted_configurations,  # Set consistent hue order
     )
 
     rotate_xticks(ax, sorted_prompts, rotation=45, ha="right")
@@ -78,6 +82,9 @@ def plot_execution_time_distribution(original_df, ax):
         original_df.set_index("Experiment").loc[experiment_medians.index].reset_index()
     )
 
+    # Determine a consistent order for the hue by sorting the unique values
+    sorted_configurations = sorted(sorted_df["Configuration"].unique())
+
     sns.boxplot(
         data=sorted_df,
         x="Experiment",
@@ -86,6 +93,7 @@ def plot_execution_time_distribution(original_df, ax):
         palette=PALETTE,
         ax=ax,
         dodge=False,
+        hue_order=sorted_configurations,  # Set consistent hue order
     )
 
     # Extract only the part after the newline character for each label
