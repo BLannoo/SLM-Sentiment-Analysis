@@ -105,16 +105,18 @@ def load_data(file_path: Path) -> pd.DataFrame:
     """Load the CSV file into a DataFrame and preprocess initial columns."""
     df = pd.read_csv(file_path)
     sentiment_mapping = {
-        "Very positive": 0,
-        "Positive": 0,
-        "Mixed positive": 0,
-        "Mixed negative": 1,
-        "Negative": 1,
-        "Very negative": 1,
-        "No sentiment found": None,
+        "very positive": 0,
+        "positive": 0,
+        "mixed positive": 0,
+        "mixed negative": 1,
+        "negative": 1,
+        "very negative": 1,
+        "no sentiment found": None,
     }
 
-    df["Mapped Execution Sentiment"] = df["Execution Sentiment"].map(sentiment_mapping)
+    df["Mapped Execution Sentiment"] = (
+        df["Execution Sentiment"].str.lower().map(sentiment_mapping)
+    )
     df["No Sentiment Found"] = df["Execution Sentiment"] == "No sentiment found"
     df["Correctly Classified"] = df["Label"] == df["Mapped Execution Sentiment"]
 
