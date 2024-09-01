@@ -1,0 +1,31 @@
+**Review:**
+{review}
+
+**Instructions:**
+
+Classify the execution sentiment of the movie review by analyzing it step-by-step. Follow
+these steps carefully to determine the sentiment:
+
+1. **Identify Positive Elements:** List words, phrases, or sentences that indicate a positive
+   sentiment. Explain why they contribute positively to the overall tone.
+   - Positive elements: [List positive elements and explanations]
+
+2. **Identify Negative Elements:** List words, phrases, or sentences that indicate a negative
+   sentiment. Explain why they contribute negatively to the overall tone.
+   - Negative elements: [List negative elements and explanations]
+
+3. **Evaluate the Overall Tone:** Consider the balance of positive and negative elements. Is
+   one sentiment predominant, or are they balanced? Reflect on whether the overall tone
+   leans towards praise, criticism, or neutrality.
+   - Overall tone: [Describe the overall tone based on the balance of elements]
+
+4. **Consider the Author's Intent and Emotion:** Reflect on the author's purpose and the
+   emotions they express. Are they enthusiastic, disappointed, conflicted, or neutral?
+   - Author’s intent and emotion: [Describe the author's intent and emotion]
+
+**Output Format:**
+
+Reasoning:
+<summary of the thinking steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

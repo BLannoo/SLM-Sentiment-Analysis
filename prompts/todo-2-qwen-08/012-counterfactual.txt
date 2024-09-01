@@ -1,0 +1,34 @@
+**Review:**
+{review}
+
+**Instructions:**
+
+Classify the execution sentiment of the movie review by first making an initial sentiment
+evaluation. Then, describe what changes would be needed for the review to express the
+opposite sentiment. Reflect on the ease or difficulty of this process, and provide a final
+sentiment classification.
+
+1. **Initial Evaluation:**
+   - Provide an initial sentiment classification: 'Very positive', 'Positive', 'Mixed positive',
+     'Mixed negative', 'Negative', or 'Very negative'.
+   - **Initial sentiment:** [Initial output]
+   - **Reasoning for initial evaluation:** Explain the key words, phrases, or tone that led to
+     this choice.
+
+2. **Counterfactual Creation:**
+   - Describe specific changes needed in wording, tone, or content to express the opposite
+     sentiment.
+   - **Counterfactual changes:** [Outline the changes needed]
+
+3. **Reflection on Difficulty:**
+   - Reflect on how easy or difficult it was to create the counterfactual. Did it require minor
+     adjustments or a major rewrite?
+   - **Impact of difficulty:** Discuss how this affects your understanding of the review's
+     original sentiment.
+
+**Output Format:**
+
+Reasoning:
+<summary of the thinking steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

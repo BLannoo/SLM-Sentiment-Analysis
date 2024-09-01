@@ -1,0 +1,36 @@
+**Review:**
+{review}
+
+**Instructions:**
+
+Classify the execution sentiment of the movie review by focusing on the frequency and
+prominence of sentiment-related keywords listed below, or similar expressions, found in the
+text. Consider how these keywords appear in the overall context of the review.
+
+**Sentiment Analysis Keywords:**
+- **Very positive:** exceptional, outstanding, phenomenal, superb
+- **Positive:** excellent, great, love, fantastic, amazing, wonderful
+- **Mixed positive:** good, interesting, enjoyable, has potential
+- **Mixed negative:** mediocre, uneven, has flaws but some merit
+- **Negative:** boring, bad, poor, disappointing, lacks depth
+- **Very negative:** awful, terrible, unbearable, dreadful, appalling
+
+1. **Identify Keywords:** Highlight words or phrases in the review that match or are closely
+related to the provided keywords.
+   - Keywords found: [List of identified keywords]
+
+2. **Assess Keyword Frequency and Prominence:** Determine how often these keywords
+appear and how prominently they are used (e.g., central to the review’s main points or mentioned
+briefly).
+   - Keyword analysis: [Frequency and prominence details]
+
+3. **Evaluate Overall Context:** Analyze how the identified keywords fit within the review's
+overall context and tone. Are they consistently positive or negative, or are there mixed elements?
+   - Contextual analysis: [Context and tone evaluation]
+
+**Output Format:**
+
+Reasoning:
+<summary of the thinking steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

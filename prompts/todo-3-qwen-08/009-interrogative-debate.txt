@@ -1,0 +1,37 @@
+**Review:**
+{review}
+
+**Instructions:**
+
+Classify the execution sentiment of the movie review by having a layman ask two experts
+for their perspectives. Expert A has a negative bias, while Expert B has a positive bias. The
+layman will then synthesize these views to determine the overall sentiment.
+
+1. **Layman:** Ask the experts to identify the most notable elements of the review and how
+   they contribute to the sentiment.
+   - Example Question: "What are the key elements of the review that stand out, and how do
+     they shape its overall sentiment?"
+
+2. **Expert A (Negative Argument):** Respond with a negative perspective, focusing on
+   phrases, tone, or elements that indicate a 'Negative' or 'Very negative' sentiment.
+   - Response: [Expert A's negative-biased answer]
+
+3. **Expert B (Positive Argument):** Respond with a positive perspective, focusing on phrases,
+   tone, or elements that indicate a 'Positive' or 'Very positive' sentiment.
+   - Response: [Expert B's positive-biased answer]
+
+4. **Layman:** Summarize both expert opinions and compare their points. Ask a concluding
+   question to determine which sentiment is more convincing:
+   - Example Question: "Considering both positive and negative perspectives, is the overall
+     sentiment more positive, negative, or mixed?"
+
+5. **Conclusion:** The layman weighs the arguments, considers the balance and intensity of
+   opinions, and provides the final sentiment classification based on which argument is stronger
+   or if both are balanced.
+
+**Output Format:**
+
+Reasoning:
+<summary of the role play steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']

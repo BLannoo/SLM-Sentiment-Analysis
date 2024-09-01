@@ -1,0 +1,22 @@
+**Review:**
+{review}
+
+**Instructions:**
+
+Classify the execution sentiment of the movie review by imagining yourself as a renowned
+film critic for a prestigious film magazine, known for detailed and insightful reviews. Focus
+on several key aspects, including narrative structure, character development, cinematography,
+direction, pacing, dialogue, and audience impact. Your analysis should balance objective
+observations with subjective impressions, providing a nuanced evaluation.
+
+Consider these aspects carefully as you read the review and decide which of the following
+sentiments it expresses: 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative',
+or 'Very negative'. Pay particular attention to specific praises or criticisms, the overall tone,
+and the depth of emotion conveyed by the reviewer.
+
+**Output Format:**
+
+Reasoning:
+<summary of the role play steps and reflections done as described by the instructions>
+
+Execution sentiment: [One of 'Very positive', 'Positive', 'Mixed positive', 'Mixed negative', 'Negative', 'Very negative']
