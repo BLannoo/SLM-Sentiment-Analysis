@@ -58,3 +58,18 @@ Focuses on evaluating the models and prompts based on key metrics such as accura
 Includes visual representations of the results and comparisons across different configurations.
 
 For more details, check [007_evaluation_metrics_and_analysis.md](docs/007_evaluation_metrics_and_analysis.md).
+
+### 8. Summary of Findings
+
+Summarizes the key findings from the experiments, focusing on model performance, prompt development,
+and insights on defining sentiment and dataset ambiguity. It highlights the need for a larger dataset,
+exploration of smaller models, and clearer sentiment definitions to enhance future analysis.
+
+For more details, check [008_summary_of_findings.md](docs/008_summary_of_findings.md).
+
+### 9. Future Work and Next Steps
+
+Identifies potential areas for future exploration, such as improving prompt templates, validating strategies,
+and comparing results against larger language models.
+
+For more details, check [008_future_work_and_next_steps.md](docs/009_future_work_and_next_steps).
