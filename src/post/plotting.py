@@ -63,7 +63,7 @@ def plot_accuracy(final_df, ax):
     ax.legend(
         title="Configuration",
         loc="lower center",
-        ncol=5,
+        ncol=6,
     )
 
 
@@ -130,6 +130,12 @@ def plot_execution_time_distribution(original_df: pd.DataFrame, ax) -> None:
         "Experiment (Configuration + Prompt Template; "
         "only Prompt Template shown as labels "
         "due to Configuration being communicated through hue)"
+    )
+
+    ax.legend(
+        title="Configuration",
+        loc="upper left",
+        ncol=2,
     )
 
 

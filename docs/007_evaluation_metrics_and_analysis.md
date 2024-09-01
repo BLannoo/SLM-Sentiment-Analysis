@@ -58,9 +58,10 @@ However, running 100 reviews on MPS still took ~9 hours and Collab CPU took ~2h4
 The task requires analyzing the effect of different temperature settings on sentiment classification performance.
 In our experiments, we tested both low (0.2) and high (0.8) temperature settings for each model and prompt template.
 
-However, given the current experimental setup and dataset size (100 reviews per experiment), we observe a significant
-variance in the accuracy results. This variance makes it challenging to draw conclusive insights regarding the impact
-of temperature settings on model performance.
+Given the current experimental setup and dataset size (100 reviews per experiment), we observe a significant variance
+in the accuracy results. This variance makes it challenging to draw conclusive insights regarding the impact of temperature
+settings on model performance. Generally, one might expect lower temperatures to perform better in binary classification tasks,
+as they promote more deterministic and less creative outputs. However, our results provide no confirmation for this.
 
 ### Key Observations:
 
@@ -70,7 +71,6 @@ of temperature settings on model performance.
 
 For the reasons above, no definitive conclusions can be made about the influence of temperature settings on sentiment classification performance in this experiment setup.
 
-
 ## 7.7 Running the Evaluation
 
 Run the analysis script with:
@@ -78,3 +78,7 @@ Run the analysis script with:
 ```bash
 python src/post/multi_experiment_analysis.py
 ```
+
+A consolidated dataset of all experiments (approximately 11 MB) is available in the repository:
+[data/gold/ALL-index=1-100.csv](data/gold/ALL-index=1-100.csv). This dataset can be used to reproduce
+the analysis or generate alternative visualizations.

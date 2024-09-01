@@ -2,3 +2,4 @@
 .venv/
 data/*
 !data/imdb_subset/
+!data/gold/
