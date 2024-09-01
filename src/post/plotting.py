@@ -28,7 +28,7 @@ def render_as_multiple_figures(report: Report, font_size: int = 11):
 
 
 def plot_accuracy(final_df, ax):
-    specific_model_temp = "QWEN / T=0.2 / GPU"
+    specific_model_temp = "GPU / QWEN / T=0.2"
     sorted_prompts = (
         final_df[final_df["Configuration"] == specific_model_temp]
         .sort_values(by="Accuracy", ascending=False)["Prompt Template"]
@@ -63,11 +63,11 @@ def plot_accuracy(final_df, ax):
     ax.legend(
         title="Configuration",
         loc="lower center",
-        ncol=4,
+        ncol=5,
     )
 
 
-def plot_execution_time_distribution(original_df, ax):
+def plot_execution_time_distribution(original_df: pd.DataFrame, ax) -> None:
     original_df["Experiment"] = (
         original_df["Configuration"] + ",\n" + original_df["Prompt Template"]
     )
@@ -96,6 +96,22 @@ def plot_execution_time_distribution(original_df, ax):
         hue_order=sorted_configurations,  # Set consistent hue order
     )
 
+    # Dynamically determine if we should use a log scale for the y-axis
+    max_execution_times = sorted_df.groupby("Experiment")[
+        "Execution Time (minutes)"
+    ].max()
+
+    max_ratio = max_execution_times.max() / max_execution_times.min()
+    if max_ratio > 100:
+        ax.set_yscale("log")
+        ax.set_title(
+            "Execution Time Distribution (minutes) per Experiment (LOG SCALE!!!)"
+        )
+        ax.set_ylabel("Execution Time (minutes) (LOG SCALE!!!)")
+    else:
+        ax.set_title("Execution Time Distribution (minutes) per Experiment")
+        ax.set_ylabel("Execution Time (minutes)")
+
     # Extract only the part after the newline character for each label
     # Why: The part before the newline is the 'Configuration', which is already
     # represented by the hue in the plot. To avoid redundancy and keep the x-tick
@@ -110,14 +126,11 @@ def plot_execution_time_distribution(original_df, ax):
     rotate_xticks(ax, experiment_labels, rotation=45, ha="right")
 
     ax.yaxis.grid(True, linestyle=":", linewidth=0.7)
-    ax.set_title("Execution Time Distribution (minutes) per Experiment")
     ax.set_xlabel(
         "Experiment (Configuration + Prompt Template; "
         "only Prompt Template shown as labels "
         "due to Configuration being communicated through hue)"
     )
-
-    ax.set_ylabel("Execution Time (minutes)")
 
 
 def rotate_xticks(ax, labels, rotation=45, ha="right"):

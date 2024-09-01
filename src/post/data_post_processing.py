@@ -14,7 +14,7 @@ def load_data(file_path: Path) -> pd.DataFrame:
     df = pd.read_csv(file_path)
 
     df["Configuration"] = (
-        df["Model"] + " / T=" + df["Temperature"].astype(str) + " / " + df["Device"]
+        df["Device"] + " / " + df["Model"] + " / T=" + df["Temperature"].astype(str)
     )
 
     sentiment_mapping = {

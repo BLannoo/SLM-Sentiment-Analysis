@@ -12,8 +12,15 @@ from src.post.plotting import render_as_1_figure
 from src.post.report import Report, GeneralMetrics
 
 
-def perform_analysis(file_path: Path, excluded_templates: list[str] = None) -> Report:
+def perform_analysis(
+    file_path: Path, excluded_templates: list[str] = None, keep_only_gpu: bool = True
+) -> Report:
     df = load_data(file_path)
+
+    if keep_only_gpu:
+        # GPU's performance is so much better, that it becomes near 0 in comparison to MPS or CPU
+        df = df.loc[lambda _df: _df["Device"] == "GPU"]
+
     accuracy_df = calculate_accuracy(df)
     precision_df = calculate_precision(df)
     final_df = pd.merge(accuracy_df, precision_df, on=EXPERIMENT_IDENTIFIERS)
@@ -84,6 +91,7 @@ def extract_failed_reviews(
 if __name__ == "__main__":
     _report = perform_analysis(
         file_path=DATA_FOLDER / "gold" / "ALL-index=1-100.csv",
+        keep_only_gpu=True,
     )
     print(_report)
 
