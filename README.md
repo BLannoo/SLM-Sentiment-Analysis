@@ -42,3 +42,10 @@ Describes the initial steps to analyze experiment results using provided scripts
 statistics and deeper insights for individual review assessments.
 
 For more details, check [005_first_analysis_of_experiment_results.md](docs/005_first_analysis_of_experiment_results.md).
+
+### 6. Prompt Engineering and Design
+
+Explores the iterative process of designing and refining prompts to improve model performance. It also discusses strategies
+used for creating effective prompts and the logic behind them.
+
+For more details, check [006_prompt_engineering_and_design.md](docs/006_prompt_engineering_and_design.md).
