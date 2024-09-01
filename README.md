@@ -49,3 +49,12 @@ Explores the iterative process of designing and refining prompts to improve mode
 used for creating effective prompts and the logic behind them.
 
 For more details, check [006_prompt_engineering_and_design.md](docs/006_prompt_engineering_and_design.md).
+
+## Conclusion
+
+### 7. Evaluation Metrics and Analysis
+
+Focuses on evaluating the models and prompts based on key metrics such as accuracy and execution time.
+Includes visual representations of the results and comparisons across different configurations.
+
+For more details, check [007_evaluation_metrics_and_analysis.md](docs/007_evaluation_metrics_and_analysis.md).
