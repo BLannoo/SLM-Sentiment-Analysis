@@ -41,9 +41,8 @@ A visual example is provided below:
 
 ### 2.2.3 Clone the Repository
 
-To pull the codebase from GitHub, you'll need to use your GitHub PAT.
-
-This allows you to clone the repository and access all necessary files.
+To pull the codebase from GitHub, you can use a GitHub PAT,
+but the repo was made public now so this is not necessary anymore.
 
 Example code snippet to use the PAT in Colab:
 
@@ -52,7 +51,7 @@ from google.colab import userdata
 
 github_pat = userdata.get('GITHUB_PAT')
 
-!git clone https://{github_pat}@github.com/BLannoo/JetBrainsApplication.git
+!git clone https://{github_pat}@github.com/BLannoo/SLM-Sentiment-Analysis.git
 `````
 
 ### 2.2.4 Manage Dependencies
