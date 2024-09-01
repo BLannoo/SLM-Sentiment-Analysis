@@ -27,54 +27,22 @@ def main(
     temperatures: str = None,
 ):
     """
-    Run batch sentiment analysis on reviews using different model temperatures and prompt templates.
+    Run batch sentiment analysis on reviews using different models, temperatures, and prompt templates.
 
-    Usage:
-        You can use either positional or named arguments to run this script.
+    For full usage instructions, parameters, and examples, see `docs/004_running_experiments.md`.
 
-    Positional:
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py QWEN ./prompts/strategies/ 0 100
-
-    Named:
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py \
-            -m QWEN -p ./prompts/strategies/ -s 0 -e 100 -t 0.01,0.2,0.8
+    Usage examples:
+        PYTHONPATH=$(pwd):$PYTHONPATH caffeinate python src/main.py -m QWEN -p ./prompts/strategies/
+        PYTHONPATH=$(pwd):$PYTHONPATH caffeinate python src/main.py -s 0 -e 100 -t 0.2,0.8
 
     Parameters:
-        model_name (str): The model to use for sentiment analysis. Options are:
-                    - 'QWEN': Qwen/Qwen2-1.5B-Instruct
-                    - 'PHI': microsoft/Phi-3-mini-4k-instruct
-                    Default is 'QWEN'.
+        -m model_name (str): Model to use ('QWEN' or 'PHI').
+        -p prompt_folder_name (str): Path to the folder containing prompt files.
+        -s start_index (int): Index of the first review to analyze.
+        -e end_index (int): Index of the last review to analyze.
+        -t temperatures (str): Comma-separated list of temperatures (e.g., '0.2,0.8').
 
-        prompt_folder_name (str): Relative path to the folder containing prompt files to be used during model analysis.
-                    Default is './prompts/strategies/'.
-
-        start_index (int): The index of the first review to analyze.
-                    Default is 0.
-
-        end_index (int): The index of the last review to analyze.
-                    Default is 100.
-
-        temperatures (str): A comma-separated list of temperatures for the model runs (e.g., '0.01,0.2,0.8').
-                    This controls the randomness of the model's outputs;
-                    lower values make the output more deterministic.
-                    Default is '0.01,0.2,0.8'.
-
-    Functionality:
-        This script performs sentiment analysis over a range of temperatures specified by the user
-        or default (0.01, 0.2, 0.8) for each prompt template found in the specified prompt folder.
-        The results of each analysis are saved to a CSV file, including columns for
-        the temperature, prompt template, model, device, and run time.
-
-    Examples:
-        Positional:
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py QWEN ./prompts/strategies/ 0 100
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py PHI ./prompts/strategies/ 0 100
-
-        Named:
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py -m PHI
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py -p ./prompts/strategies/
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py -s 100 -e 200
-        PYTHONPATH=$(pwd):$PYTHONPATH python src/main.py -t 0.01,0.2,0.8
+    Refer to `docs/004_running_experiments.md` for more details.
     """
 
     if temperatures is None:
