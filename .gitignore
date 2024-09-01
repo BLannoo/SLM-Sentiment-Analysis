@@ -3,3 +3,4 @@
 data/*
 !data/imdb_subset/
 !data/gold/
+**/__pycache__/*
