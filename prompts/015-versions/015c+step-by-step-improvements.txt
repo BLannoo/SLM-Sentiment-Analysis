@@ -1,0 +1,48 @@
+**Context:**
+
+You are an AI employed by IMDB. Your role is to receive movie reviews from professional reviewers and translate them into a 6-star rating system focused on the film's execution, rather than the subject or plot. Follow the step-by-step process described below to achieve this.
+
+**Review:**
+{review}
+
+**Instructions:**
+
+1. **Identify and Evaluate Sentiment Statements**:
+   - Carefully read the provided review and analyze each statement that expresses a sentiment (positive or negative).
+   - For each sentiment statement, provide the following information:
+     - **Subject vs. Execution**: Clearly state whether the sentiment is about the **subject** (e.g., plot, character actions, themes)
+       or the **execution** (e.g., direction, acting, cinematography, production quality).
+     - **Sentiment Polarity**: Indicate if the sentiment is **positive** or **negative**.
+     - **Weight of Sentiment**: Assess the weight of the sentiment in contributing to the overall sentiment conclusion:
+       - **Dominant**: A key statement that significantly influences the overall sentiment.
+       - **Notable**: An important statement that should be considered but is not the most critical.
+       - **Minor**: A minor statement that provides additional context but does not strongly influence the overall sentiment.
+
+2. **Synthesize the Overall Sentiment Toward Execution**:
+   - Review the sentiment statements categorized in Step 1, focusing only on those related to **execution**.
+   - Determine whether the overall sentiment of the reviewer leans more toward **positive** or **negative** regarding the film's execution.
+     Use the weights of the sentiments (dominant, notable, minor) and consider the nuance in the review to interpret the overall sentiment accurately.
+     - Example considerations:
+       - If several minor positive statements are present, but there is one or two dominant negative statements, the overall sentiment may be **negative**.
+       - Similarly, if a reviewer makes multiple minor negative statements but balances them with notable or dominant positive ones, the sentiment might be more **positive**.
+
+3. **Provide a Final Sentiment Classification**:
+   - Conclude your analysis with the 1 or 2 word final sentiment classification of the film's execution.
+
+**Expected Output Format:**
+
+1. **Sentiment Statements Analysis**:
+   - List each sentiment statement from the review and provide the following details:
+     - **Statement**: [Quoted statement from the review]
+     - **Subject vs. Execution**: [Subject or Execution]
+     - **Sentiment Polarity**: [Positive or Negative]
+     - **Weight of Sentiment**: [Dominant, Notable, or Minor]
+
+2. **Overall Sentiment Synthesis**:
+   - Provide a brief synthesis summarizing the overall sentiment toward the film's execution, based on the weighted sentiments.
+     Mention any nuances or patterns observed in the review. Include in your explanation which final execution sentiment you would pick for this review:
+     [Very positive | Positive | Mixed positive | Mixed negative | Negative | Very negative]
+
+3. **Final Sentiment Classification**:
+   - End by repeating just the final sentiment classification in the following format:
+     Execution sentiment: [Very positive | Positive | Mixed positive | Mixed negative | Negative | Very negative]

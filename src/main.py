@@ -34,6 +34,8 @@ def main(
     Usage examples:
         PYTHONPATH=$(pwd):$PYTHONPATH caffeinate python src/main.py -m QWEN -p ./prompts/strategies/
         PYTHONPATH=$(pwd):$PYTHONPATH caffeinate python src/main.py -s 0 -e 100 -t 0.2,0.8
+        PYTHONPATH=$(pwd):$PYTHONPATH caffeinate python src/main.py -m QWEN_Q -p ./prompts/current/ -t '0.2'
+
 
     Parameters:
         -m model_name (str): Model to use ('QWEN' or 'PHI').

@@ -2,7 +2,8 @@ import os
 import time
 from typing import Optional, List, Any
 
-from src.consts import ModelName, DeviceType
+
+from src.consts import ModelName, DeviceType, MAX_TOKENS
 
 # These environment variables need to be set before importing `torch`
 # PYTORCH_ENABLE_MPS_FALLBACK allows the CPU to take over when MPS operations are unsupported.
@@ -13,6 +14,7 @@ if DeviceType.detect() != DeviceType.GPU:  # Not running on Colab GPU
 
 import torch  # noqa: E402
 from langchain_core.callbacks import CallbackManagerForLLMRun  # noqa: E402
+from llama_cpp import Llama  # noqa: E402
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline  # noqa: E402
 from langchain_core.language_models import LLM  # noqa: E402
 from langchain_core.pydantic_v1 import Field  # noqa: E402
@@ -24,6 +26,7 @@ class CustomSLM(LLM):
     model_name: ModelName = Field(default=ModelName.QWEN)
     device_type: DeviceType = Field(default=DeviceType.detect())
     custom_pipeline: Optional[Any] = Field(default=None)
+    llama_model: Optional[Llama] = Field(default=None)
 
     def __init__(
         self,
@@ -38,20 +41,28 @@ class CustomSLM(LLM):
 
         logger.info(f"Using {device_type.value} backend.")
 
-        model = AutoModelForCausalLM.from_pretrained(
-            self.model_name.value,
-            torch_dtype=self._determine_data_type(device_type),
-        ).to(torch.device(device_type.value))
+        if "GGUF" in self.model_name.value:
+            self.llama_model = Llama.from_pretrained(
+                repo_id=self.model_name.value,
+                filename="qwen2-1_5b-instruct-q5_k_m.gguf",
+                verbose=False,
+                n_ctx=MAX_TOKENS,
+            )
+        else:
+            model = AutoModelForCausalLM.from_pretrained(
+                self.model_name.value,
+                torch_dtype=self._determine_data_type(device_type),
+            ).to(torch.device(device_type.value))
 
-        tokenizer = AutoTokenizer.from_pretrained(self.model_name.value)
-        self.custom_pipeline = pipeline(
-            "text-generation",
-            model=model,
-            tokenizer=tokenizer,
-            device=self._translate_device_type(device_type),
-            torch_dtype=self._determine_data_type(device_type),
-            do_sample=True,
-        )
+            tokenizer = AutoTokenizer.from_pretrained(self.model_name.value)
+            self.custom_pipeline = pipeline(
+                "text-generation",
+                model=model,
+                tokenizer=tokenizer,
+                device=self._translate_device_type(device_type),
+                torch_dtype=self._determine_data_type(device_type),
+                do_sample=True,
+            )
 
     @staticmethod
     def _validate_device_availability(device_type: DeviceType) -> None:
@@ -80,17 +91,24 @@ class CustomSLM(LLM):
         run_manager: Optional[CallbackManagerForLLMRun] = None,
         **kwargs: Any,
     ) -> str:
-        messages = [
-            {"role": "system", "content": "You are a helpful AI assistant."},
-            {"role": "user", "content": prompt},
-        ]
-        output = self.custom_pipeline(
-            messages,
-            max_new_tokens=512,
-            return_full_text=False,
-            temperature=temperature,
-        )
-        return output[0]["generated_text"]
+        if self.llama_model:
+            # Use llama_cpp model for quantized model
+            messages = [
+                {"role": "system", "content": "You are a helpful AI assistant."},
+                {"role": "user", "content": prompt},
+            ]
+            response = self.llama_model.create_chat_completion(
+                temperature=temperature, max_tokens=MAX_TOKENS, messages=messages
+            )
+            return response["choices"][0]["message"]["content"]
+        else:
+            output = self.custom_pipeline(
+                prompt,
+                max_new_tokens=MAX_TOKENS,
+                return_full_text=False,
+                temperature=temperature,
+            )
+            return output[0]["generated_text"]
 
     @property
     def _identifying_params(self) -> dict:

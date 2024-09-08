@@ -63,7 +63,7 @@ def plot_accuracy(final_df, ax):
     ax.legend(
         title="Configuration",
         loc="lower center",
-        ncol=6,
+        ncol=7,
     )
 
 

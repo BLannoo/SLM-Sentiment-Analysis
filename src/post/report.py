@@ -39,7 +39,7 @@ class Report:
         final_df: pd.DataFrame,
         general_metrics: GeneralMetrics,
         review_dfs: list,
-        terminal_width: int = 215,
+        terminal_width: int = 280,
     ):
         self.original_df = original_df
         self.final_df = final_df
@@ -70,8 +70,9 @@ class Report:
 
     def _format_single_review(self, index: int, review_df: pd.DataFrame) -> str:
         review_text = review_df["Review"].iloc[0]
+        review_id = review_df["Review ID"].iloc[0]
         formatted_review = (
-            f"\n{BLUE}Review {index}:\n{self._soft_wrap_text(review_text)}{RESET}\n"
+            f"\n{BLUE}Review {review_id}:\n{self._soft_wrap_text(review_text)}{RESET}\n"
         )
 
         for _, row in review_df.iterrows():
@@ -82,10 +83,12 @@ class Report:
                 correctness = f"{GREEN}Correctly Classified as {row['Execution Sentiment']}{RESET}"
             else:
                 correctness = f"{RED}Incorrectly Classified as {row['Execution Sentiment']}{RESET}"
+            if row["Label"] == 0:
+                actual = "(actual: positive)"
+            else:
+                actual = "(actual: negative)"
             reasoning = self._soft_wrap_text(row["Reasoning"])
-            formatted_review += (
-                f"\n{BLUE}Experiment - {identifier_values}, {correctness} {RESET}\n"
-            )
+            formatted_review += f"\n{BLUE}Experiment - {identifier_values}, {correctness} {actual} {RESET}\n"
             formatted_review += f"Reasoning: {reasoning}\n"
         return formatted_review
 

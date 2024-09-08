@@ -11,6 +11,7 @@ DATA_FOLDER = REPO_ROOT / "data"
 class ModelName(str, Enum):
     QWEN = "Qwen/Qwen2-1.5B-Instruct"
     PHI = "microsoft/Phi-3-mini-4k-instruct"
+    QWEN_Q = "Qwen/Qwen2-1.5B-Instruct-GGUF"
 
 
 class DeviceType(str, Enum):
@@ -31,3 +32,4 @@ class DeviceType(str, Enum):
 
 DEFAULT_TEMPERATURES = [0.2, 0.8]
 SEED = 42
+MAX_TOKENS = 32768

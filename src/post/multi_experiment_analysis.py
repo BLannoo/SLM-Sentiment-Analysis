@@ -90,8 +90,8 @@ def extract_failed_reviews(
 
 if __name__ == "__main__":
     _report = perform_analysis(
-        file_path=DATA_FOLDER / "gold" / "ALL-index=1-100.csv",
-        keep_only_gpu=True,
+        file_path=DATA_FOLDER / "gold" / "015-a-e-0-100.csv",
+        keep_only_gpu=False,
     )
     print(_report)
 

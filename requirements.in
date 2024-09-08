@@ -4,6 +4,7 @@
 # Also add a comment explain what the issue is.
 
 # Dev dependencies, to few to pull into separate requirements file
+jupyterlab
 pip-tools
 
 # Prod dependencies
@@ -12,6 +13,7 @@ datasets>2.14.4  # Seems like 2.14.4 is not able to download the data
 langchain==0.2.14  # More compatible with the Google Collab environment
 matplotlib
 plac
+scipy
 seaborn
 torch
 transformers
